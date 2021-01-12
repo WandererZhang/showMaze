@@ -5,11 +5,11 @@ import pojo.Maze;
 import java.util.regex.Pattern;
 
 /**
- * 实现输入并生成迷宫的接口
+ * 实现输入并生成迷宫
  *
  * @author zhang
  */
-public class InputMaze implements InputMazeImpl {
+public class InputMaze {
 
     static final int LINE_AND_ROW_LENGTH = 2;
     //第一行应该有两个数据分别为行和列
@@ -24,7 +24,7 @@ public class InputMaze implements InputMazeImpl {
      * @description 用于创建Maze对象
      * @date 23:52 2021/1/8
      **/
-    public Maze creatMaze(String str1, String str2, String strRoad, String strWall) {
+    public static Maze creatMaze(String str1, String str2, String strRoad, String strWall) {
         String[] lineAndRow = str1.split(" ");
         String[] connect = str2.split(";");
         if ((!judgeLineAndRow(lineAndRow)) || (!judgeConnect(connect))) {
@@ -32,8 +32,7 @@ public class InputMaze implements InputMazeImpl {
         }
         Maze maze = new Maze(Integer.valueOf(lineAndRow[0]), Integer.valueOf(lineAndRow[1]), strRoad, strWall);
         addPoint(maze);
-        CreatConnect creatConnect = new CreatConnect();
-        return creatConnect.creatConnect(maze, connect);
+        return CreatConnect.creatConnect(maze, connect);
     }
 
     /**

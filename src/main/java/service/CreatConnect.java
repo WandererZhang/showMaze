@@ -5,11 +5,11 @@ import lombok.Data;
 import pojo.Maze;
 
 /**
- * 实现添加迷宫的连通性的接口
+ * 实现添加迷宫的连通性
  *
  * @author zhang
  */
-public class CreatConnect implements CreatConnectImpl {
+public class CreatConnect{
     @Data
     @AllArgsConstructor
     static class ConnectPair {
@@ -32,7 +32,7 @@ public class CreatConnect implements CreatConnectImpl {
      * @description 为初始化后的maze添加连通性
      * @date 1:47 2021/1/10
      **/
-    public Maze creatConnect(Maze maze, String[] connect) {
+    public static Maze creatConnect(Maze maze, String[] connect) {
         for (String s : connect) {
             ConnectPair connectPair = creatConnectPair(s);
             if (!judgeConnectPair(connectPair, maze)) {

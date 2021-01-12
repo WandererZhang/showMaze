@@ -21,11 +21,9 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
             String str1 = scanner.nextLine();
             String str2 = scanner.nextLine();
-            InputMaze inputMaze = new InputMaze();
-            Maze maze = inputMaze.creatMaze(str1, str2, "[R]", "[W]");
+            Maze maze = InputMaze.creatMaze(str1, str2, "[R]", "[W]");
             if (maze != null) {
-                PrintMaze printMaze = new PrintMaze();
-                printMaze.printMaze(maze);
+                PrintMaze.printMaze(maze);
             }
         }
     }
